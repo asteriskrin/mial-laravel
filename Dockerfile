@@ -1,5 +1,7 @@
 FROM php:8.0.5-fpm-alpine3.13
 
+RUN apk add --update linux-headers
+
 # Install packages and remove default server definition
 RUN apk --no-cache add gnupg autoconf make g++ nginx supervisor zlib-dev libpng-dev icu-dev icu-libs librdkafka-dev git libzip-dev shadow nodejs nodejs-npm file imagemagick imagemagick-dev && \
     rm /etc/nginx/conf.d/default.conf
