@@ -44,6 +44,7 @@ RUN pecl install sqlsrv
 RUN pecl install pdo_sqlsrv
 RUN pecl install rdkafka    
 RUN pecl install imagick
+RUN pecl install redis
 
 RUN docker-php-ext-enable --ini-name 30-sqlsrv.ini sqlsrv
 RUN docker-php-ext-enable --ini-name 35-pdo_sqlsrv.ini pdo_sqlsrv
@@ -51,9 +52,7 @@ RUN docker-php-ext-enable rdkafka
 RUN docker-php-ext-enable imagick
 
 # Install Redis
-RUN pecl install -o -f redis \
-    && rm -rf /tmp/pear \
-    && docker-php-ext-enable redis
+RUN docker-php-ext-enable redis.so
 
 # Install Xdebug
 RUN pecl install xdebug
