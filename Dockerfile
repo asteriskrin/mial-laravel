@@ -49,6 +49,7 @@ RUN docker-php-ext-enable --ini-name 30-sqlsrv.ini sqlsrv
 RUN docker-php-ext-enable --ini-name 35-pdo_sqlsrv.ini pdo_sqlsrv
 RUN docker-php-ext-enable rdkafka
 RUN docker-php-ext-enable imagick
+RUN docker-php-ext-enable redis
 
 # Install Xdebug
 RUN pecl install xdebug
